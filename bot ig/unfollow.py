@@ -1,15 +1,7 @@
 from selenium import webdriver
 import time
 
-print ('github : https://github.com/Anasg4')
-
-
-username = input("Input your Username: ")
-password = input("Input your password: ")
-
-# change to yours chromedriver location
-driver = webdriver.Chrome(executable_path="C:/Users/Anas/Downloads/chromedriver")
-def web ():
+def web (username, password):
 
     driver.get("https://www.instagram.com/")
     time.sleep(1)
@@ -21,9 +13,9 @@ def web ():
     time.sleep(3)
     driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div[3]/button[2]').click()
     time.sleep(3)
-    login()
+    login(username)
 
-def login ():
+def login (username):
     driver.get(f"https://www.instagram.com/{username}")
     time.sleep(3)
     driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[3]').click()
@@ -42,5 +34,9 @@ def unfollow():
     login()
 
 if __name__ == '__main__':
-    web()
-
+    print('github : https://github.com/Anasg4')
+    user = input("Input your Username: ")
+    pas = input("Input your password: ")
+    # change to yours chromedriver location
+    driver = webdriver.Chrome(executable_path="C:/Users/Anas/Downloads/chromedriver")
+    web(user, pas)
