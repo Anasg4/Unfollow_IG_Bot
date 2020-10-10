@@ -37,5 +37,8 @@ if __name__ == '__main__':
     user = input("Input your Username: ")
     pas = input("Input your password: ")
     # change to yours chromedriver location
-    driver = webdriver.Chrome(executable_path="C:/Users/Anas/Downloads/chromedriver")
+    try:
+        driver = webdriver.Chrome(executable_path="C:/Users/Anas/Downloads/chromedriver")
+    except :
+        print("Cant find your chrome driver, Plz check and change executable path in this code")
     web(user, pas)
