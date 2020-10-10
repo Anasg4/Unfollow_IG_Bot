@@ -13,24 +13,23 @@ def web (username, password):
     time.sleep(3)
     driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div[3]/button[2]').click()
     time.sleep(3)
-    login(username)
+    login()
 
-def login (username):
-    driver.get(f"https://www.instagram.com/{username}")
+def login ():
+    driver.get(f"https://www.instagram.com/{user}")
     time.sleep(3)
     driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/header/section/ul/li[3]').click()
-    # driver.find_element_by_xpath('//*[@id="f2ee7f18ebbcae8"]/div/div/div').click()
     time.sleep(3)
     unfollow()
 
 def unfollow():
     for i in range(10):
         driver.find_element_by_xpath('//button[text()="Following"]').click()
-        time.sleep(2)
-        # for j in range(i):
+        time.sleep(1)
         driver.find_element_by_xpath('//button[text()="Unfollow"]').click()
         time.sleep(2)
     driver.refresh()
+    time.sleep(3)
     login()
 
 if __name__ == '__main__':
